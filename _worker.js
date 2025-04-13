@@ -64,35 +64,81 @@ function newUrl(urlStr, base) {
 	}
 }
 
-async function nginx() {
-	const text = `
+
+
+// 密码验证页面
+async function getAuthPage() {
+	return `
 	<!DOCTYPE html>
 	<html>
 	<head>
-	<title>Welcome to nginx!</title>
-	<style>
-		body {
-			width: 35em;
-			margin: 0 auto;
-			font-family: Tahoma, Verdana, Arial, sans-serif;
-		}
-	</style>
+		<title>Docker Hub Proxy - 需要验证</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f5f5f5;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				margin: 0;
+			}
+			.auth-container {
+				background: white;
+				padding: 2rem;
+				border-radius: 8px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				text-align: center;
+			}
+			h1 {
+				color: #333;
+				margin-bottom: 1.5rem;
+			}
+			input {
+				padding: 0.5rem;
+				margin-bottom: 1rem;
+				width: 100%;
+				box-sizing: border-box;
+			}
+			button {
+				background: #0066ff;
+				color: white;
+				border: none;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+		</style>
 	</head>
 	<body>
-	<h1>Welcome to nginx!</h1>
-	<p>If you see this page, the nginx web server is successfully installed and
-	working. Further configuration is required.</p>
-	
-	<p>For online documentation and support please refer to
-	<a href="http://nginx.org/">nginx.org</a>.<br/>
-	Commercial support is available at
-	<a href="http://nginx.com/">nginx.com</a>.</p>
-	
-	<p><em>Thank you for using nginx.</em></p>
+		<div class="auth-container">
+			<h1>Docker Hub Proxy</h1>
+			<p>请输入密码访问</p>
+			<input type="password" id="password" placeholder="密码">
+			<button onclick="submitAuth()">验证</button>
+		</div>
+		<script>
+			function submitAuth() {
+				const password = document.getElementById('password').value;
+				if (password) {
+					localStorage.setItem('docker_proxy_auth', btoa(password));
+					location.reload();
+				}
+			}
+			
+			// 自动填充已保存的密码
+			window.onload = function() {
+				const savedAuth = localStorage.getItem('docker_proxy_auth');
+				if (savedAuth) {
+					document.getElementById('password').value = atob(savedAuth);
+				}
+			};
+		</script>
 	</body>
 	</html>
-	`
-	return text;
+	`;
 }
 
 async function searchInterface() {
@@ -286,6 +332,25 @@ async function searchInterface() {
 
 export default {
 	async fetch(request, env, ctx) {
+		// 密码验证逻辑
+		const url = new URL(request.url);
+		const password = env.PASSWORD || 'YYDS';
+		const authHeader = request.headers.get('Authorization');
+		const isApiRequest = url.pathname.startsWith('/v2/') || url.pathname.startsWith('/token');
+		
+		// 跳过API请求和密码验证请求
+		if (!isApiRequest && url.pathname !== '/auth') {
+			// 检查密码是否正确
+			if (!authHeader || !authHeader.includes(`Basic ${btoa(password)}`)) {
+				return new Response(await getAuthPage(), {
+					status: 401,
+					headers: {
+						'WWW-Authenticate': 'Basic realm="Docker Hub Proxy"',
+						'Content-Type': 'text/html; charset=UTF-8'
+					}
+				});
+			}
+		}
 		const getReqHeader = (key) => request.headers.get(key); // 获取请求头
 
 		let url = new URL(request.url); // 解析请求URL
@@ -329,13 +394,7 @@ export default {
 				if (env.URL302) {
 					return Response.redirect(env.URL302, 302);
 				} else if (env.URL) {
-					if (env.URL.toLowerCase() == 'nginx') {
-						//首页改成一个nginx伪装页
-						return new Response(await nginx(), {
-							headers: {
-								'Content-Type': 'text/html; charset=UTF-8',
-							},
-						});
+
 					} else return fetch(new Request(env.URL, request));
 				} else	{
 					if (fakePage) return new Response(await searchInterface(), {
