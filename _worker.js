@@ -85,6 +85,7 @@ async function getAuthPage() {
 				height: 100vh;
 				margin: 0;
 			}
+	}
 			.auth-container {
 				background: white;
 				padding: 2rem;
@@ -92,16 +93,19 @@ async function getAuthPage() {
 				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 				text-align: center;
 			}
+	}
 			h1 {
 				color: #333;
 				margin-bottom: 1.5rem;
 			}
+	}
 			input {
 				padding: 0.5rem;
 				margin-bottom: 1rem;
 				width: 100%;
 				box-sizing: border-box;
 			}
+	}
 			button {
 				background: #0066ff;
 				color: white;
@@ -110,6 +114,7 @@ async function getAuthPage() {
 				border-radius: 4px;
 				cursor: pointer;
 			}
+	}
 		</style>
 	</head>
 	<body>
@@ -126,7 +131,9 @@ async function getAuthPage() {
 					localStorage.setItem('docker_proxy_auth', btoa(password));
 					location.reload();
 				}
+	}
 			}
+	}
 			
 			// 自动填充已保存的密码
 			window.onload = function() {
@@ -134,7 +141,9 @@ async function getAuthPage() {
 				if (savedAuth) {
 					document.getElementById('password').value = atob(savedAuth);
 				}
-			};
+	}
+			}
+	};
 		</script>
 	</body>
 	</html>
@@ -154,12 +163,14 @@ async function searchInterface() {
 			--github-color: #f0f6fc;
 			--githubbj-color: #010409;
 		}
+	}
 		
 		* {
 			box-sizing: border-box;
 			margin: 0;
 			padding: 0;
 		}
+	}
 
 		body {
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -172,6 +183,7 @@ async function searchInterface() {
 			background: linear-gradient(120deg, #1a90ff 0%, #003eb3 100%);
 			padding: 20px;
 		}
+	}
 
 		.container {
 			text-align: center;
@@ -184,6 +196,7 @@ async function searchInterface() {
 			justify-content: center; // 新增
 			min-height: 70vh; // 新增
 		}
+	}
 
 		
 
@@ -191,20 +204,24 @@ async function searchInterface() {
 			margin-bottom: 30px;
 			transition: transform 0.3s ease;
 		}
+	}
 		.logo:hover {
 			transform: scale(1.05);
 		}
+	}
 		.title {
 			color: white;
 			font-size: 2em;
 			margin-bottom: 10px;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 		}
+	}
 		.subtitle {
 			color: rgba(255,255,255,0.9);
 			font-size: 1.1em;
 			margin-bottom: 30px;
 		}
+	}
 		.search-container {
 			display: flex;
 			align-items: stretch;
@@ -213,6 +230,7 @@ async function searchInterface() {
 			margin: 0 auto;
 			height: 50px;
 		}
+	}
 		#search-input {
 			flex: 1;
 			padding: 15px 20px;
@@ -223,6 +241,7 @@ async function searchInterface() {
 			box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 			transition: all 0.3s ease;
 		}
+	}
 		#search-input {
 			flex: 1;
 			padding: 0 20px;
@@ -234,6 +253,7 @@ async function searchInterface() {
 			transition: all 0.3s ease;
 			height: 100%;
 		}
+	}
 		#search-button {
 			padding: 0 25px;
 			background-color: #0066ff;
@@ -246,46 +266,58 @@ async function searchInterface() {
 			align-items: center;
 			justify-content: center;
 		}
+	}
 		#search-button:hover {
 			background-color: #0052cc;
 			transform: translateY(-1px);
 		}
+	}
 		#search-button svg {
 			width: 24px;
 			height: 24px;
 		}
+	}
 		.tips {
 			color: rgba(255,255,255,0.8);
 			margin-top: 20px;
 			font-size: 0.9em;
 		}
+	}
 		@media (max-width: 480px) {
 			.container {
 				padding: 0 15px;
 				min-height: 60vh; // 新增
 			}
+	}
 			.github-corner svg {
 				width: 60px;
 				height: 60px;
 			}
+	}
 			.github-corner:hover .octo-arm {
 				animation: none;
 			}
+	}
 			.github-corner .octo-arm {
 				animation: octocat-wave 560ms ease-in-out;
 			}
+	}
 			.search-container {
 				height: 45px;
 			}
+	}
 			
 			#search-input {
 				padding: 0 15px;
 			}
+	}
 			
 			#search-button {
 				padding: 0 20px;
 			}
+	}
 		}
+	}
 		</style>
 	</head>
 	<body>
@@ -315,14 +347,18 @@ async function searchInterface() {
 			if (query) {
 				window.location.href = '/search?q=' + encodeURIComponent(query);
 			}
+	}
 		}
+	}
 	
 		document.getElementById('search-button').addEventListener('click', performSearch);
 		document.getElementById('search-input').addEventListener('keypress', function(event) {
 			if (event.key === 'Enter') {
 				performSearch();
 			}
-		});
+	}
+		}
+	});
 		</script>
 	</body>
 	</html>
@@ -387,32 +423,45 @@ export default {
 			return new Response('<html><body><h1>404 Not Found</h1><p>The requested resource could not be found.</p></body></html>', {
 				headers: {
 					'Content-Type': 'text/html; charset=UTF-8',
-				},
-			});
-		} else if ((userAgent && userAgent.includes('mozilla')) || hubParams.some(param => reqUrl.pathname.includes(param))) {
+				}
+	},
+			}
+	});
+		}
+	} else if ((userAgent && userAgent.includes('mozilla')) || hubParams.some(param => reqUrl.pathname.includes(param))) {
 			if (reqUrl.pathname == '/') {
 				if (env.URL302) {
 					return Response.redirect(env.URL302, 302);
-				} else if (env.URL) {
+				}
+	} else if (env.URL) {
 					return fetch(new Request(env.URL, request));
-				} else {
+				}
+	} else {
 					if (fakePage) return new Response(await searchInterface(), {
 						headers: {
 							'Content-Type': 'text/html; charset=UTF-8',
-						},
-					});
+						}
+	},
+					}
+	});
 				}
-			} else {
+	}
+			}
+	} else {
 				if (fakePage) reqUrl.hostname = 'hub.docker.com';
 				if (reqUrl.searchParams.get('q')?.includes('library/') && reqUrl.searchParams.get('q') != 'library/') {
 					const search = reqUrl.searchParams.get('q');
 					reqUrl.searchParams.set('q', search.replace('library/', ''));
 				}
+	}
 				const newRequest = new Request(reqUrl, request);
 				return fetch(newRequest);
 			}
+	}
 		}
+	}
 		}
+	}
 
 		// 修改包含 %2F 和 %3A 的请求
 		if (!/%2F/.test(reqUrl.search) && /%3A/.test(reqUrl.toString())) {
@@ -420,6 +469,7 @@ export default {
 			reqUrl = new URL(modifiedUrl);
 			console.log(`handle_url: ${reqUrl}`);
 		}
+	}
 
 		// 处理token请求
 		if (reqUrl.pathname.includes('/token')) {
@@ -433,10 +483,13 @@ export default {
 					'Connection': 'keep-alive',
 					'Cache-Control': 'max-age=0'
 				}
-			};
+	}
+			}
+	};
 			let token_url = auth_url + reqUrl.pathname + reqUrl.search;
 			return fetch(new Request(token_url, request), token_parameter);
 		}
+	}
 
 		// 修改 /v2/ 请求路径
 		if (hub_host == 'registry-1.docker.io' && /^\/v2\/[^/]+\/[^/]+\/[^/]+$/.test(reqUrl.pathname) && !/^\/v2\/library/.test(reqUrl.pathname)) {
@@ -444,6 +497,7 @@ export default {
 			reqUrl.pathname = '/v2/library/' + reqUrl.pathname.split('/v2/')[1];
 			console.log(`modified_url: ${reqUrl.pathname}`);
 		}
+	}
 
 		// 构造请求参数
 		let parameter = {
@@ -455,19 +509,23 @@ export default {
 				'Accept-Encoding': getReqHeader("Accept-Encoding"),
 				'Connection': 'keep-alive',
 				'Cache-Control': 'max-age=0'
-			},
+			}
+	},
 			cacheTtl: 3600 // 缓存时间
-		};
+		}
+	};
 
 		// 添加Authorization头
 		if (request.headers.has("Authorization")) {
 			parameter.headers.Authorization = getReqHeader("Authorization");
 		}
+	}
 
 		// 添加可能存在字段X-Amz-Content-Sha256
 		if (request.headers.has("X-Amz-Content-Sha256")) {
 			parameter.headers['X-Amz-Content-Sha256'] = getReqHeader("X-Amz-Content-Sha256");
 		}
+	}
 
 		// 发起请求并处理响应
 		let original_response = await fetch(new Request(reqUrl, request), parameter);
@@ -483,6 +541,7 @@ export default {
 			let re = new RegExp(auth_url, 'g');
 			new_response_headers.set("Www-Authenticate", response_headers.get("Www-Authenticate").replace(re, workers_url));
 		}
+	}
 
 		// 处理重定向
 		if (new_response_headers.get("Location")) {
@@ -490,12 +549,14 @@ export default {
 			console.info(`Found redirection location, redirecting to ${location}`);
 			return httpHandler(request, location, hub_host);
 		}
+	}
 
 		// 返回修改后的响应
 		let response = new Response(original_text, {
 			status,
 			headers: new_response_headers
-		});
+		}
+	});
 		return response;
 	}
 };
@@ -558,8 +619,10 @@ async function proxy(urlObj, reqInit, rawLen) {
 			return makeRes(res.body, 400, {
 				'--error': `bad len: ${newLen}, except: ${rawLen}`,
 				'access-control-expose-headers': '--error',
-			});
+			}
+	});
 		}
+	}
 	}
 	const status = res.status;
 	resHdrNew.set('access-control-expose-headers', '*');
