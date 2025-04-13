@@ -333,13 +333,13 @@ async function searchInterface() {
 export default {
 	async fetch(request, env, ctx) {
 		// 密码验证逻辑
-		const url = new URL(request.url);
+		const reqUrl = new URL(request.url);
 		const password = env.PASSWORD || 'YYDS';
 		const authHeader = request.headers.get('Authorization');
-		const isApiRequest = url.pathname.startsWith('/v2/') || url.pathname.startsWith('/token');
+		const isApiRequest = reqUrl.pathname.startsWith('/v2/') || reqUrl.pathname.startsWith('/token');
 		
 		// 跳过API请求和密码验证请求
-		if (!isApiRequest && url.pathname !== '/auth') {
+		if (!isApiRequest && reqUrl.pathname !== '/auth') {
 			// 检查密码是否正确
 			if (!authHeader || !authHeader.includes(`Basic ${btoa(password)}`)) {
 				return new Response(await getAuthPage(), {
@@ -353,15 +353,15 @@ export default {
 		}
 		const getReqHeader = (key) => request.headers.get(key); // 获取请求头
 
-		let url = new URL(request.url); // 解析请求URL
+		// 使用之前定义的reqUrl变量，不重新声明url变量
 		const userAgentHeader = request.headers.get('User-Agent');
 		const userAgent = userAgentHeader ? userAgentHeader.toLowerCase() : "null";
 		if (env.UA) 屏蔽爬虫UA = 屏蔽爬虫UA.concat(await ADD(env.UA));
-		const workers_url = `https://${url.hostname}`;
+		const workers_url = `https://${reqUrl.hostname}`;
 
 		// 获取请求参数中的 ns
-		const ns = url.searchParams.get('ns');
-		const hostname = url.searchParams.get('hubhost') || url.hostname;
+		const ns = reqUrl.searchParams.get('ns');
+		const hostname = reqUrl.searchParams.get('hubhost') || reqUrl.hostname;
 		const hostTop = hostname.split('.')[0]; // 获取主机名的第一部分
 
 		let checkHost; // 在这里定义 checkHost 变量
@@ -380,23 +380,22 @@ export default {
 		const fakePage = checkHost ? checkHost[1] : false; // 确保 fakePage 不为 undefined
 		console.log(`域名头部: ${hostTop} 反代地址: ${hub_host} searchInterface: ${fakePage}`);
 		// 更改请求的主机名
-		url.hostname = hub_host;
+		reqUrl.hostname = hub_host;
 		const hubParams = ['/v1/search', '/v1/repositories'];
 		if (屏蔽爬虫UA.some(fxxk => userAgent.includes(fxxk)) && 屏蔽爬虫UA.length > 0) {
-			// 首页改成一个nginx伪装页
-			return new Response(await nginx(), {
+			// 返回简单的HTML页面替代nginx伪装页
+			return new Response('<html><body><h1>404 Not Found</h1><p>The requested resource could not be found.</p></body></html>', {
 				headers: {
 					'Content-Type': 'text/html; charset=UTF-8',
 				},
 			});
-		} else if ((userAgent && userAgent.includes('mozilla')) || hubParams.some(param => url.pathname.includes(param))) {
-			if (url.pathname == '/') {
+		} else if ((userAgent && userAgent.includes('mozilla')) || hubParams.some(param => reqUrl.pathname.includes(param))) {
+			if (reqUrl.pathname == '/') {
 				if (env.URL302) {
 					return Response.redirect(env.URL302, 302);
 				} else if (env.URL) {
-
-					} else return fetch(new Request(env.URL, request));
-				} else	{
+					return fetch(new Request(env.URL, request));
+				} else {
 					if (fakePage) return new Response(await searchInterface(), {
 						headers: {
 							'Content-Type': 'text/html; charset=UTF-8',
@@ -404,25 +403,26 @@ export default {
 					});
 				}
 			} else {
-				if (fakePage) url.hostname = 'hub.docker.com';
-				if (url.searchParams.get('q')?.includes('library/') && url.searchParams.get('q') != 'library/') {
-					const search = url.searchParams.get('q');
-					url.searchParams.set('q', search.replace('library/', ''));
+				if (fakePage) reqUrl.hostname = 'hub.docker.com';
+				if (reqUrl.searchParams.get('q')?.includes('library/') && reqUrl.searchParams.get('q') != 'library/') {
+					const search = reqUrl.searchParams.get('q');
+					reqUrl.searchParams.set('q', search.replace('library/', ''));
 				}
-				const newRequest = new Request(url, request);
+				const newRequest = new Request(reqUrl, request);
 				return fetch(newRequest);
 			}
 		}
+		}
 
 		// 修改包含 %2F 和 %3A 的请求
-		if (!/%2F/.test(url.search) && /%3A/.test(url.toString())) {
-			let modifiedUrl = url.toString().replace(/%3A(?=.*?&)/, '%3Alibrary%2F');
-			url = new URL(modifiedUrl);
-			console.log(`handle_url: ${url}`);
+		if (!/%2F/.test(reqUrl.search) && /%3A/.test(reqUrl.toString())) {
+			let modifiedUrl = reqUrl.toString().replace(/%3A(?=.*?&)/, '%3Alibrary%2F');
+			reqUrl = new URL(modifiedUrl);
+			console.log(`handle_url: ${reqUrl}`);
 		}
 
 		// 处理token请求
-		if (url.pathname.includes('/token')) {
+		if (reqUrl.pathname.includes('/token')) {
 			let token_parameter = {
 				headers: {
 					'Host': 'auth.docker.io',
@@ -434,15 +434,15 @@ export default {
 					'Cache-Control': 'max-age=0'
 				}
 			};
-			let token_url = auth_url + url.pathname + url.search;
+			let token_url = auth_url + reqUrl.pathname + reqUrl.search;
 			return fetch(new Request(token_url, request), token_parameter);
 		}
 
 		// 修改 /v2/ 请求路径
-		if (hub_host == 'registry-1.docker.io' && /^\/v2\/[^/]+\/[^/]+\/[^/]+$/.test(url.pathname) && !/^\/v2\/library/.test(url.pathname)) {
-			//url.pathname = url.pathname.replace(/\/v2\//, '/v2/library/');
-			url.pathname = '/v2/library/' + url.pathname.split('/v2/')[1];
-			console.log(`modified_url: ${url.pathname}`);
+		if (hub_host == 'registry-1.docker.io' && /^\/v2\/[^/]+\/[^/]+\/[^/]+$/.test(reqUrl.pathname) && !/^\/v2\/library/.test(reqUrl.pathname)) {
+			//reqUrl.pathname = reqUrl.pathname.replace(/\/v2\//, '/v2/library/');
+			reqUrl.pathname = '/v2/library/' + reqUrl.pathname.split('/v2/')[1];
+			console.log(`modified_url: ${reqUrl.pathname}`);
 		}
 
 		// 构造请求参数
@@ -470,7 +470,7 @@ export default {
 		}
 
 		// 发起请求并处理响应
-		let original_response = await fetch(new Request(url, request), parameter);
+		let original_response = await fetch(new Request(reqUrl, request), parameter);
 		let original_response_clone = original_response.clone();
 		let original_text = original_response_clone.body;
 		let response_headers = original_response.headers;
