@@ -224,7 +224,7 @@ async function loginInterface() {
 			<div class="logo">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" fill="#0066ff" width="80" height="60">
 					<path d="M23.763 6.886c-.065-.053-.673-.512-1.954-.512-.32 0-.659.03-1.01.087-.248-1.703-1.651-2.533-1.716-2.57l-.345-.2-.227.328a4.596 4.596 0 0 0-.611 1.433c-.23.972-.09 1.884.403 2.666-.596.331-1.546.418-1.744.42H.752a.753.753 0 0 0-.75.749c-.007 1.456.233 2.864.692 4.07.545 1.43 1.355 2.483 2.409 3.13 1.181.725 3.104 1.14 5.276 1.14 1.016 0 2.03-.092 2.93-.266 1.417-.273 2.705-.742 3.826-1.391a10.497 10.497 0 0 0 2.61-2.14c1.252-1.42 1.998-3.005 2.553-4.408.075.003.148.005.221.005 1.371 0 2.215-.55 2.68-1.01.505-.5.685-.998.704-1.053L24 7.076l-.237-.19Z"></path>
-					<path d="M2.216 8.075h2.119a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H2.216A.186.186 0 0 0 2.031 6v1.89c0 .103.083.186.185.186Zm2.92 0h2.118a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186H5.136A.185.185 0 0 0 4.95 6v1.89c0 .103.083.186.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H8.1A.185.185 0 0 0 7.914 6v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm-5.892-2.72h2.118a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H5.136a.186.186 0 0 0-.186.186v1.89c0 .103.083.186.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H8.1a.186.186 0 0 0-.186.186v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm0-2.72h2.119a.186.186 0 0 0 .185-.186V.56a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm2.955 5.44h2.118a.185.185 0 0 0 .186-.186V6a.185.185 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.186v1.89c0 .103.083.186.185.186Z"></path>
+					<path d="M2.216 8.075h2.119a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H2.216A.186.186 0 0 0 2.031 6v1.89c0 .103.083.186.185.186Zm2.92 0h2.118a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186H5.136A.185.185 0 0 0 4.95 6v1.89c0 .103.083.186.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H8.1A.185.185 0 0 0 7.914 6v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm-5.892-2.72h2.118a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H5.136a.186.186 0 0 0-.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H8.1a.186.186 0 0 0-.186.186v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm0-2.72h2.119a.186.186 0 0 0 .185-.186V.56a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm2.955 5.44h2.118a.185.185 0 0 0 .186-.186V6a.185.185 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.186v1.89c0 .103.083.186.185.186Z"></path>
 				</svg>
 			</div>
 			<h1 class="title">Docker Hub 镜像搜索</h1>
@@ -414,7 +414,7 @@ async function searchInterface() {
 			<div class="logo">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" fill="#ffffff" width="120" height="90">
 					<path d="M23.763 6.886c-.065-.053-.673-.512-1.954-.512-.32 0-.659.03-1.01.087-.248-1.703-1.651-2.533-1.716-2.57l-.345-.2-.227.328a4.596 4.596 0 0 0-.611 1.433c-.23.972-.09 1.884.403 2.666-.596.331-1.546.418-1.744.42H.752a.753.753 0 0 0-.75.749c-.007 1.456.233 2.864.692 4.07.545 1.43 1.355 2.483 2.409 3.13 1.181.725 3.104 1.14 5.276 1.14 1.016 0 2.03-.092 2.93-.266 1.417-.273 2.705-.742 3.826-1.391a10.497 10.497 0 0 0 2.61-2.14c1.252-1.42 1.998-3.005 2.553-4.408.075.003.148.005.221.005 1.371 0 2.215-.55 2.68-1.01.505-.5.685-.998.704-1.053L24 7.076l-.237-.19Z"></path>
-					<path d="M2.216 8.075h2.119a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H2.216A.186.186 0 0 0 2.031 6v1.89c0 .103.083.186.185.186Zm2.92 0h2.118a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186H5.136A.185.185 0 0 0 4.95 6v1.89c0 .103.083.186.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H8.1A.185.185 0 0 0 7.914 6v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm-5.892-2.72h2.118a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H5.136a.186.186 0 0 0-.186.186v1.89c0 .103.083.186.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H8.1a.186.186 0 0 0-.186.186v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm0-2.72h2.119a.186.186 0 0 0 .185-.186V.56a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm2.955 5.44h2.118a.185.185 0 0 0 .186-.186V6a.185.185 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.186v1.89c0 .103.083.186.185.186Z"></path>
+					<path d="M2.216 8.075h2.119a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H2.216A.186.186 0 0 0 2.031 6v1.89c0 .103.083.186.185.186Zm2.92 0h2.118a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186H5.136A.185.185 0 0 0 4.95 6v1.89c0 .103.083.186.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V6a.186.186 0 0 0-.185-.186H8.1A.185.185 0 0 0 7.914 6v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V6a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm-5.892-2.72h2.118a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H5.136a.186.186 0 0 0-.186.186Zm2.964 0h2.118a.186.186 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186H8.1a.186.186 0 0 0-.186.186v1.89c0 .103.083.186.186.186Zm2.928 0h2.119a.185.185 0 0 0 .185-.186V3.28a.186.186 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm0-2.72h2.119a.186.186 0 0 0 .185-.186V.56a.185.185 0 0 0-.185-.186h-2.119a.186.186 0 0 0-.185.186v1.89c0 .103.083.186.185.186Zm2.955 5.44h2.118a.185.185 0 0 0 .186-.186V6a.185.185 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.186v1.89c0 .103.083.186.185.186Z"></path>
 				</svg>
 			</div>
 			<h1 class="title">Docker Hub 镜像搜索</h1>
@@ -588,166 +588,208 @@ export default {
 			console.log(`handle_url: ${url}`);
 		}
 
-		// 处理token请求
-		if (url.pathname.includes('/token')) {
-			let token_parameter = {
-				headers: {
-					'Host': 'auth.docker.io',
-					'User-Agent': getReqHeader("User-Agent"),
-					'Accept': getReqHeader("Accept"),
-					'Accept-Language': getReqHeader("Accept-Language"),
-					'Accept-Encoding': getReqHeader("Accept-Encoding"),
-					'Connection': 'keep-alive',
-					'Cache-Control': 'max-age=0'
+		// 添加重试配置
+		const FETCH_TIMEOUT = 60000; // 60秒超时
+		const MAX_RETRIES = 3; // 最大重试次数
+		const RETRY_DELAY = 1000; // 重试间隔（毫秒）
+		
+		// 添加带超时的fetch函数
+		async function fetchWithTimeout(resource, options = {}) {
+		    const controller = new AbortController();
+		    const id = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+		    
+		    const response = await fetch(resource, {
+		        ...options,
+		        signal: controller.signal
+		    });
+		    
+		    clearTimeout(id);
+		    return response;
+		}
+		
+		// 添加重试机制的fetch函数
+		async function fetchWithRetry(resource, options = {}) {
+		    let lastError;
+		    
+		    for (let i = 0; i < MAX_RETRIES; i++) {
+		        try {
+		            return await fetchWithTimeout(resource, options);
+		        } catch (error) {
+		            console.error(`Attempt ${i + 1} failed:`, error);
+		            lastError = error;
+		            
+		            if (i < MAX_RETRIES - 1) {
+		                await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * (i + 1)));
+		            }
+		        }
+		    }
+		    
+		    throw lastError;
+		}
+
+		// 修改原有的fetch调用
+		export default {
+			async fetch(request, env, ctx) {
+				// 修改token请求部分
+				if (url.pathname.includes('/token')) {
+					let token_parameter = {
+						headers: {
+							'Host': 'auth.docker.io',
+							'User-Agent': getReqHeader("User-Agent"),
+							'Accept': getReqHeader("Accept"),
+							'Accept-Language': getReqHeader("Accept-Language"),
+							'Accept-Encoding': getReqHeader("Accept-Encoding"),
+							'Connection': 'keep-alive',
+							'Cache-Control': 'max-age=0'
+						}
+					};
+					let token_url = auth_url + url.pathname + url.search;
+					return fetchWithRetry(new Request(token_url, request), token_parameter);
 				}
-			};
-			let token_url = auth_url + url.pathname + url.search;
-			return fetch(new Request(token_url, request), token_parameter);
-		}
 
-		// 修改 /v2/ 请求路径
-		if (hub_host == 'registry-1.docker.io' && /^\/v2\/[^/]+\/[^/]+\/[^/]+$/.test(url.pathname) && !/^\/v2\/library/.test(url.pathname)) {
-			//url.pathname = url.pathname.replace(/\/v2\//, '/v2/library/');
-			url.pathname = '/v2/library/' + url.pathname.split('/v2/')[1];
-			console.log(`modified_url: ${url.pathname}`);
-		}
+				// 修改 /v2/ 请求路径
+				if (hub_host == 'registry-1.docker.io' && /^\/v2\/[^/]+\/[^/]+\/[^/]+$/.test(url.pathname) && !/^\/v2\/library/.test(url.pathname)) {
+					//url.pathname = url.pathname.replace(/\/v2\//, '/v2/library/');
+					url.pathname = '/v2/library/' + url.pathname.split('/v2/')[1];
+					console.log(`modified_url: ${url.pathname}`);
+				}
 
-		// 构造请求参数
-		let parameter = {
-			headers: {
-				'Host': hub_host,
-				'User-Agent': getReqHeader("User-Agent"),
-				'Accept': getReqHeader("Accept"),
-				'Accept-Language': getReqHeader("Accept-Language"),
-				'Accept-Encoding': getReqHeader("Accept-Encoding"),
-				'Connection': 'keep-alive',
-				'Cache-Control': 'max-age=0'
-			},
-			cacheTtl: 3600 // 缓存时间
+				// 构造请求参数
+				let parameter = {
+					headers: {
+						'Host': hub_host,
+						'User-Agent': getReqHeader("User-Agent"),
+						'Accept': getReqHeader("Accept"),
+						'Accept-Language': getReqHeader("Accept-Language"),
+						'Accept-Encoding': getReqHeader("Accept-Encoding"),
+						'Connection': 'keep-alive',
+						'Cache-Control': 'max-age=0'
+					},
+					cacheTtl: 3600 // 缓存时间
+				};
+
+				// 添加Authorization头
+				if (request.headers.has("Authorization")) {
+					parameter.headers.Authorization = getReqHeader("Authorization");
+				}
+
+				// 添加可能存在字段X-Amz-Content-Sha256
+				if (request.headers.has("X-Amz-Content-Sha256")) {
+					parameter.headers['X-Amz-Content-Sha256'] = getReqHeader("X-Amz-Content-Sha256");
+				}
+
+				// 发起请求并处理响应
+				let original_response = await fetch(new Request(url, request), parameter);
+				let original_response_clone = original_response.clone();
+				let original_text = original_response_clone.body;
+				let response_headers = original_response.headers;
+				let new_response_headers = new Headers(response_headers);
+				let status = original_response.status;
+
+				// 修改 Www-Authenticate 头
+				if (new_response_headers.get("Www-Authenticate")) {
+					let auth = new_response_headers.get("Www-Authenticate");
+					let re = new RegExp(auth_url, 'g');
+					new_response_headers.set("Www-Authenticate", response_headers.get("Www-Authenticate").replace(re, workers_url));
+				}
+
+				// 处理重定向
+				if (new_response_headers.get("Location")) {
+					const location = new_response_headers.get("Location");
+					console.info(`Found redirection location, redirecting to ${location}`);
+					return httpHandler(request, location, hub_host);
+				}
+
+				// 返回修改后的响应
+				let response = new Response(original_text, {
+					status,
+					headers: new_response_headers
+				});
+				return response;
+			}
 		};
 
-		// 添加Authorization头
-		if (request.headers.has("Authorization")) {
-			parameter.headers.Authorization = getReqHeader("Authorization");
+		/**
+		 * 处理HTTP请求
+		 * @param {Request} req 请求对象
+		 * @param {string} pathname 请求路径
+		 * @param {string} baseHost 基地址
+		 */
+		function httpHandler(req, pathname, baseHost) {
+			const reqHdrRaw = req.headers;
+
+			// 处理预检请求
+			if (req.method === 'OPTIONS' &&
+				reqHdrRaw.has('access-control-request-headers')
+			) {
+				return new Response(null, PREFLIGHT_INIT);
+			}
+
+			let rawLen = '';
+
+			const reqHdrNew = new Headers(reqHdrRaw);
+
+			reqHdrNew.delete("Authorization"); // 修复s3错误
+
+			const refer = reqHdrNew.get('referer');
+
+			let urlStr = pathname;
+
+			const urlObj = newUrl(urlStr, 'https://' + baseHost);
+
+			/** @type {RequestInit} */
+			const reqInit = {
+				method: req.method,
+				headers: reqHdrNew,
+				redirect: 'follow',
+				body: req.body
+			};
+			return proxy(urlObj, reqInit, rawLen);
 		}
 
-		// 添加可能存在字段X-Amz-Content-Sha256
-		if (request.headers.has("X-Amz-Content-Sha256")) {
-			parameter.headers['X-Amz-Content-Sha256'] = getReqHeader("X-Amz-Content-Sha256");
-		}
+		/**
+		 * 代理请求
+		 * @param {URL} urlObj URL对象
+		 * @param {RequestInit} reqInit 请求初始化对象
+		 * @param {string} rawLen 原始长度
+		 */
+		async function proxy(urlObj, reqInit, rawLen) {
+			const res = await fetch(urlObj.href, reqInit);
+			const resHdrOld = res.headers;
+			const resHdrNew = new Headers(resHdrOld);
 
-		// 发起请求并处理响应
-		let original_response = await fetch(new Request(url, request), parameter);
-		let original_response_clone = original_response.clone();
-		let original_text = original_response_clone.body;
-		let response_headers = original_response.headers;
-		let new_response_headers = new Headers(response_headers);
-		let status = original_response.status;
+			// 验证长度
+			if (rawLen) {
+				const newLen = resHdrOld.get('content-length') || '';
+				const badLen = (rawLen !== newLen);
 
-		// 修改 Www-Authenticate 头
-		if (new_response_headers.get("Www-Authenticate")) {
-			let auth = new_response_headers.get("Www-Authenticate");
-			let re = new RegExp(auth_url, 'g');
-			new_response_headers.set("Www-Authenticate", response_headers.get("Www-Authenticate").replace(re, workers_url));
-		}
+				if (badLen) {
+					return makeRes(res.body, 400, {
+						'--error': `bad len: ${newLen}, except: ${rawLen}`,
+						'access-control-expose-headers': '--error',
+					});
+				}
+			}
+			const status = res.status;
+			resHdrNew.set('access-control-expose-headers', '*');
+			resHdrNew.set('access-control-allow-origin', '*');
+			resHdrNew.set('Cache-Control', 'max-age=1500');
 
-		// 处理重定向
-		if (new_response_headers.get("Location")) {
-			const location = new_response_headers.get("Location");
-			console.info(`Found redirection location, redirecting to ${location}`);
-			return httpHandler(request, location, hub_host);
-		}
+			// 删除不必要的头
+			resHdrNew.delete('content-security-policy');
+			resHdrNew.delete('content-security-policy-report-only');
+			resHdrNew.delete('clear-site-data');
 
-		// 返回修改后的响应
-		let response = new Response(original_text, {
-			status,
-			headers: new_response_headers
-		});
-		return response;
-	}
-};
-
-/**
- * 处理HTTP请求
- * @param {Request} req 请求对象
- * @param {string} pathname 请求路径
- * @param {string} baseHost 基地址
- */
-function httpHandler(req, pathname, baseHost) {
-	const reqHdrRaw = req.headers;
-
-	// 处理预检请求
-	if (req.method === 'OPTIONS' &&
-		reqHdrRaw.has('access-control-request-headers')
-	) {
-		return new Response(null, PREFLIGHT_INIT);
-	}
-
-	let rawLen = '';
-
-	const reqHdrNew = new Headers(reqHdrRaw);
-
-	reqHdrNew.delete("Authorization"); // 修复s3错误
-
-	const refer = reqHdrNew.get('referer');
-
-	let urlStr = pathname;
-
-	const urlObj = newUrl(urlStr, 'https://' + baseHost);
-
-	/** @type {RequestInit} */
-	const reqInit = {
-		method: req.method,
-		headers: reqHdrNew,
-		redirect: 'follow',
-		body: req.body
-	};
-	return proxy(urlObj, reqInit, rawLen);
-}
-
-/**
- * 代理请求
- * @param {URL} urlObj URL对象
- * @param {RequestInit} reqInit 请求初始化对象
- * @param {string} rawLen 原始长度
- */
-async function proxy(urlObj, reqInit, rawLen) {
-	const res = await fetch(urlObj.href, reqInit);
-	const resHdrOld = res.headers;
-	const resHdrNew = new Headers(resHdrOld);
-
-	// 验证长度
-	if (rawLen) {
-		const newLen = resHdrOld.get('content-length') || '';
-		const badLen = (rawLen !== newLen);
-
-		if (badLen) {
-			return makeRes(res.body, 400, {
-				'--error': `bad len: ${newLen}, except: ${rawLen}`,
-				'access-control-expose-headers': '--error',
+			return new Response(res.body, {
+				status,
+				headers: resHdrNew
 			});
 		}
-	}
-	const status = res.status;
-	resHdrNew.set('access-control-expose-headers', '*');
-	resHdrNew.set('access-control-allow-origin', '*');
-	resHdrNew.set('Cache-Control', 'max-age=1500');
 
-	// 删除不必要的头
-	resHdrNew.delete('content-security-policy');
-	resHdrNew.delete('content-security-policy-report-only');
-	resHdrNew.delete('clear-site-data');
-
-	return new Response(res.body, {
-		status,
-		headers: resHdrNew
-	});
-}
-
-async function ADD(envadd) {
-	var addtext = envadd.replace(/[	 |"'\r\n]+/g, ',').replace(/,+/g, ',');	// 将空格、双引号、单引号和换行符替换为逗号
-	if (addtext.charAt(0) == ',') addtext = addtext.slice(1);
-	if (addtext.charAt(addtext.length - 1) == ',') addtext = addtext.slice(0, addtext.length - 1);
-	const add = addtext.split(',');
-	return add;
-}
+		async function ADD(envadd) {
+			var addtext = envadd.replace(/[	 |"'\r\n]+/g, ',').replace(/,+/g, ',');	// 将空格、双引号、单引号和换行符替换为逗号
+			if (addtext.charAt(0) == ',') addtext = addtext.slice(1);
+			if (addtext.charAt(addtext.length - 1) == ',') addtext = addtext.slice(0, addtext.length - 1);
+			const add = addtext.split(',');
+			return add;
+		}
